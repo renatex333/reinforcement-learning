@@ -24,9 +24,9 @@ The `q_learning.py` module implements the Q-Learning algorithm for the Taxi Driv
 ## Basic Usage
 
 ```txt
-usage: python taxi_driver.py [--input INPUT] [--output OUTPUT] [--train] [--episodes EPISODES]
-                      [--alpha ALPHA] [--gamma GAMMA] [--epsilon EPSILON] [--epsilon-min EPSILON_MIN]
-                      [--epsilon-dec EPSILON_DEC] [--random] [--only-exploit]
+usage: python taxi_driver.py [--filename FILENAME] [--data-dir DATA_DIR] [--results-dir RESULTS_DIR] [--train]
+                      [--episodes EPISODES] [--alpha ALPHA] [--gamma GAMMA] [--epsilon EPSILON]
+                      [--epsilon-min EPSILON_MIN] [--epsilon-dec EPSILON_DEC] [--random] [--only-exploit]
 
 This program implements a Q-learning model for solving the taxi driver problem. It can operate in both training and inference modes, allowing users to specify various parameters to customize the learning process and output results.
 
@@ -34,8 +34,10 @@ positional arguments:
   none
 
 options:
-  --input INPUT         Path to the input file. Default is "data/q-table-taxi-driver.csv".
-  --output OUTPUT       Path to the output file where results will be saved. Default is "results/actions_taxidriver".
+  --filename FILENAME   Identifier to data and results filenames. Default is "taxi-driver".
+  --data-dir DATA_DIR   Directory to store the training data. Default is "data". Will be created if not exists.
+  --results-dir RESULTS_DIR
+                        Directory to store the resulting images (graphs). Default is "results". Will be created if not exists.
   --train               Flag to enable model training. If not set, the model will perform inference using the Q-table.
   --episodes EPISODES   Number of episodes to run during training. Default is 50000.
   --alpha ALPHA         Learning rate for the Q-learning algorithm. Default is 0.1.
@@ -50,6 +52,10 @@ options:
 ```
 
 Use these options to configure the behavior of the taxi driver AI model, including training parameters and file paths for input and output data.
+
+## Usage Example
+
+    python3 taxi_driver.py --filename taxi-driver-teste --train
 
 # References
 

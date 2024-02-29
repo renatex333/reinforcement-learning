@@ -9,9 +9,10 @@ class Parameters:
     """
     Class to store parameters for the model
     """
-    input_file: str
-    output_file: str
+    filename: str
     train: bool
     episodes: int
     randomize_actions: bool
     only_exploit: bool
+    data_dir: str
+    results_dir: str

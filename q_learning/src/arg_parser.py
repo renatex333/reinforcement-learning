@@ -13,18 +13,25 @@ def parse_args(args: list[str] = None) -> argparse.Namespace:
 
     parser = argparse.ArgumentParser(description="Parse command line arguments")
     parser.add_argument(
-        "--input",
-        help="Input file",
+        "--filename",
+        help="Filename",
         required=False,
         type=str,
-        default="data/q-table-taxi-driver.csv"
+        default="taxi-driver"
     )
     parser.add_argument(
-        "--output",
-        help="Output file",
+        "--data-dir",
+        help="Data directory",
         required=False,
         type=str,
-        default="results/actions_taxidriver"
+        default="data"
+    )
+    parser.add_argument(
+        "--results-dir",
+        help="Results directory",
+        required=False,
+        type=str,
+        default="results"
     )
     parser.add_argument(
         "--train",
