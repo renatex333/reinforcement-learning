@@ -47,8 +47,8 @@ options:
                         Minimum exploration rate. Default is 0.05.
   --epsilon-dec EPSILON_DEC
                         Exploration decay rate. Default is 0.99.
-  --random              Randomize all agent actions. Useful for exploring the action space.
-  --only-exploit        Only exploit the Q-table for making decisions, without further training.
+  --random              Randomize all agent actions. Useful for exploring the action space. (Equivalent to "--epsilon 0.0")
+  --only-exploit        Only exploit the Q-table for making decisions, without further training. (Equivalent to "--epsilon 1.0)
 ```
 
 Use these options to configure the behavior of the taxi driver AI model, including training parameters and file paths for input and output data.
@@ -56,6 +56,10 @@ Use these options to configure the behavior of the taxi driver AI model, includi
 ## Usage Example
 
     python3 taxi_driver.py --filename taxi-driver-teste --train
+    python3 taxi_driver.py --filename taxi-driver-teste --train --alpha 0.01
+    python3 taxi_driver.py --filename taxi-driver-teste --train --gamma 0.95
+    python3 taxi_driver.py --filename taxi-driver-teste --train --random
+    python3 taxi_driver.py --filename taxi-driver-teste --train --only-exploit
 
 # References
 

@@ -80,15 +80,15 @@ class QLearning:
         fig, ax1 = plt.subplots()
 
         color = "tab:red"
-        ax1.set_xlabel("Episodes")
-        ax1.set_ylabel("Rewards", color=color)
+        ax1.set_xlabel("Number of Episodes")
+        ax1.set_ylabel("Received Rewards", color=color)
         ax1.plot(rewards_per_episode, color=color)
         ax1.tick_params(axis="y", labelcolor=color)
 
         ax2 = ax1.twinx()
 
         color = "tab:blue"
-        ax2.set_ylabel("# Actions", color=color)
+        ax2.set_ylabel("Number of Actions", color=color)
         ax2.plot(actions_per_episode, color=color)
         ax2.tick_params(axis="y", labelcolor=color)
 
@@ -114,6 +114,14 @@ class QLearning:
             os.makedirs(self.results_dir)
         plt.savefig(f"{self.results_dir}/q-table-heatmap-{self.filename}.jpg")
         plt.close()
+
+    def save_partial_data(self, data, filename):
+        """
+        Saves the data to a file.
+        """
+        if not os.path.isdir(self.data_dir):
+            os.makedirs(self.data_dir)
+        savetxt(f"{self.data_dir}/{filename}.csv", data, delimiter=",")
 
     def train(self):
         """
@@ -158,11 +166,17 @@ class QLearning:
                     * self.hyperparameters.epsilon_dec
                 )
 
-        if not os.path.isdir(self.data_dir):
-            os.makedirs(self.data_dir)
-        savetxt(f"{self.data_dir}/q-table-{self.filename}.csv", self.q_table, delimiter=",")
-        self.plot_actions(actions_per_episode)
-        self.plot_rewards(rewards_per_episode)
-        self.plot_training(rewards_per_episode, actions_per_episode)
-        self.plot_q_table(q_table_states)
+        # if not os.path.isdir(self.data_dir):
+        #     os.makedirs(self.data_dir)
+        # savetxt(f"{self.data_dir}/q-table-{self.filename}.csv", self.q_table, delimiter=",")
+        # self.plot_actions(actions_per_episode)
+        # self.plot_rewards(rewards_per_episode)
+        # self.plot_training(rewards_per_episode, actions_per_episode)
+        # self.plot_q_table(q_table_states)
+
+        self.save_partial_data(rewards_per_episode, f"rewards-{self.filename}")
+        self.save_partial_data(q_table_states[0], f"q-table-states-initial-{self.filename}")
+        self.save_partial_data(q_table_states[len(q_table_states) // 2], f"q-table-states-middle-{self.filename}")
+        self.save_partial_data(q_table_states[-1], f"q-table-states-final-{self.filename}")
+
         return self.q_table
