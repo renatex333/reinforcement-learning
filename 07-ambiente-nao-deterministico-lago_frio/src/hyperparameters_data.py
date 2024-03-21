@@ -11,6 +11,15 @@ class Hyperparameters:
     """
     alpha: float
     gamma: float
-    epsilon: float
+    epsilon_start: float
     epsilon_min: float
     epsilon_dec: float
+
+    def __post_init__(self):
+        self.epsilon = self.epsilon_start
+
+    def set_epsilon(self, epsilon):
+        """
+        Method to update the epsilon value.
+        """
+        self.epsilon = epsilon
