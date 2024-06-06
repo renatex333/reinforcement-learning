@@ -1,0 +1,12 @@
+stable-baselines3
+swig
+gymnasium
+tensorboard
+pygame
+pyproject-toml
+#gymnasium[box2d]
+seaborn
+matplotlib
+pandas
+ipykernel
+opencv-python
