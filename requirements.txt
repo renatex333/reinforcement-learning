@@ -1,0 +1,11 @@
+gymnasium
+gymnasium[box2d]
+ipykernel
+ipython
+matplotlib
+numpy
+pandas
+pyarrow
+pygame
+seaborn
+torch
