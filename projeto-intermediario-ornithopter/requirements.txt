@@ -1,7 +1,0 @@
-torch
-wheel
-gymnasium[box2d]
-matplotlib
-argparse
-seaborn
-pandas

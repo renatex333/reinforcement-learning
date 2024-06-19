@@ -1,5 +1,0 @@
-gymnasium
-pygame
-IPython
-matplotlib
-numpy

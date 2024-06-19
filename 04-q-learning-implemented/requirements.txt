@@ -1,5 +1,0 @@
-gymnasium
-IPython
-numpy
-matplotlib
-seaborn
