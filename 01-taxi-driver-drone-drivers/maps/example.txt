@@ -1,0 +1,13 @@
+8 4 # Map size (y,x) (x -> column index, y -> line index)
+0 0 # Taxi initial coordinate (y,x)
+1 5 # Passenger initial coordinate (y,x)
+7 7 # Drop-off passenger coordinate (y,x)
+# Map (1 for unblocked, 0 for blocked)
+1 1 1 0
+1 1 1 0
+1 1 1 0
+1 0 1 1
+1 0 1 1
+1 0 1 1
+1 0 1 1
+1 0 1 1
